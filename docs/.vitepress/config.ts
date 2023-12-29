@@ -3,9 +3,9 @@ import { sidebar, nav } from "./relaConf";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: "/BingBan/",
-  title: "mondaylab-demo-blog",
-  description: "A VitePress Site",
+  base: "/BanBing/",
+  title: "BING",
+  description: "学海无涯，回头是岸",
 
   // 配置markdown写作风格
   // markdown: {
