@@ -29,7 +29,7 @@ export default defineConfig({
   // },
 
   themeConfig: {
-    logo: "/avatar.png",
+    logo: "/home.png",
     // https://vitepress.dev/reference/default-theme-config
     nav: nav,
     sidebar: sidebar,
