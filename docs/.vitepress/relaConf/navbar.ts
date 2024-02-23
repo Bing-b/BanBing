@@ -9,12 +9,16 @@ export const nav: DefaultTheme.NavItem[] = [
     text: "前端",
     items: [
       {
-        text: "前端框架&库",
-        link: "/column/Blogs/",
+        text: "Vue",
+        link: "/column/Vue/index",
+      },
+      {
+        text: "插件调研",
+        link: "/column/Plugins/",
       },
       {
         text: "JavaScript",
-        link: "/column/Algorithm/",
+        link: "/column/JavaScript/",
       },
     ],
   },
