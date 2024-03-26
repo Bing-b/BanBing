@@ -12,9 +12,9 @@ lastUpdated: true
 hero:
   name: 留白
   text: Stay true, be you..
-  tagline: /躺平/
+  # tagline: /躺平/
   image:
-    src: /home.gif
+    #src: /home.gif
     alt: avatar
   actions:
     - theme: brand
@@ -39,7 +39,29 @@ features:
 
 <!-- 自定义组件 -->
 <script setup>
-//import home from './components/home.vue';
+import home from './components/home.vue';
 </script>
+<style>
 
+
+  .name .clip {
+      background-image: linear-gradient(-45deg, #ffcb47, #e34ba9, #369eff, #95f3d9);
+      -webkit-background-size: 400% 400%;
+      background-size: 400% 400%;
+      border-radius: inherit;
+      -webkit-animation: 5s animation-text 5s ease infinite;
+      animation: 5s animation-text 5s ease infinite;
+      position: relative;
+      z-index: 5;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+  .text {
+    font-family: "honorSans";
+    font-weight: 600 !important;
+  }
+  
+</style>
 <home />
