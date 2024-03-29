@@ -59,7 +59,7 @@ import home from './components/home.vue';
     }
 
   .text {
-    font-family: "honorSans";
+    font-family: "atk";
     font-weight: 600 !important;
   }
   

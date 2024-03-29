@@ -51,3 +51,16 @@
   font-family: "honorSans";
   src: url("../../assets/font/HONORSans-Medium.ttf");
 }
+@font-face {
+  font-family: "JY";
+  src: url("../../assets/font/jyzt.ttf");
+}
+@font-face {
+  font-family: "atk";
+  src: url("../../assets/font/Atkinson-Hyperlegible-Bold-102.ttf");
+}
+
+html,
+body {
+  font-family: "atk";
+}
