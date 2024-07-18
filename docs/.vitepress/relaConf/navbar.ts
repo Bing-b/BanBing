@@ -20,17 +20,21 @@ export const nav: DefaultTheme.NavItem[] = [
         text: "JavaScript",
         link: "/column/JavaScript/",
       },
+      {
+        text: "工具",
+        link: "/column/Tool/",
+      },
     ],
   },
-  // {
-  //   text: "后端",
-  //   items: [
-  //     {
-  //       text: "dovker",
-  //       link: "/column/Travel/",
-  //     },
-  //   ],
-  // },
+  {
+    text: "后端",
+    items: [
+      {
+        text: "docker",
+        link: "/column/Docker/",
+      },
+    ],
+  },
   {
     text: "Life",
     items: [

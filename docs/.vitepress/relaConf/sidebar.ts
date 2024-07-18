@@ -41,4 +41,30 @@ export const sidebar: DefaultTheme.Sidebar = {
       ],
     },
   ],
+  "/column/Tool/": [
+    {
+      text: "工具",
+      items: [
+        {
+          text: "Ngrok 实现内网穿透",
+          link: "/column/Tool/index",
+        },
+      ],
+    },
+  ],
+  "/column/Docker/": [
+    {
+      text: "Docker",
+      items: [
+        {
+          text: "常用命令",
+          link: "/column/Docker/index",
+        },
+        {
+          text: "修改容器php.ini",
+          link: "/column/Docker/001_php",
+        },
+      ],
+    },
+  ],
 };

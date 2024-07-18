@@ -96,3 +96,5 @@ config.ts
 ```
 
 ##### 1.2 Vue 组件命名
+
+参考官方风格指南 https://cn.vuejs.org/style-guide/
