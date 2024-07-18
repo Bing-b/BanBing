@@ -1,0 +1,1 @@
+import{_ as s,o as a,c as n,N as l}from"./chunks/framework.d69a0811.js";const m=JSON.parse('{"title":"解决 mitt 多次触发事件订阅 bug","description":"","frontmatter":{},"headers":[],"relativePath":"column/Vue/001_Mitt.md"}'),t={name:"column/Vue/001_Mitt.md"},p=l("",6),o=[p];function e(c,r,i,D,y,F){return a(),n("div",null,o)}const u=s(t,[["render",e]]);export{m as __pageData,u as default};
