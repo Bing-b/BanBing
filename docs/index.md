@@ -11,7 +11,7 @@ lastUpdated: true
 
 hero:
   name: 留白
-  text: Stay true, be you..
+  text: Stay true, be you
   # tagline: /躺平/
   image:
     #src: /home.gif
@@ -41,7 +41,7 @@ features:
 <script setup>
 import home from './components/home.vue';
 </script>
-<style>
+<style >
 
 
   .name .clip {
@@ -53,15 +53,17 @@ import home from './components/home.vue';
       animation: 5s animation-text 5s ease infinite;
       position: relative;
       z-index: 5;
+      font-size:100px;
+      font-family:'xht';
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-  .text {
-    font-family: "atk";
+  .main .text {
+    font-family: "xht";
     font-weight: 600 !important;
   }
-  
+
 </style>
 <home />

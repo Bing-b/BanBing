@@ -48,19 +48,16 @@
 }
 
 @font-face {
-  font-family: "honorSans";
-  src: url("../../assets/font/HONORSans-Medium.ttf");
-}
-@font-face {
   font-family: "JY";
-  src: url("../../assets/font/jyzt.ttf");
+  src: url("../../assets/font/江城圆体 400W.ttf");
 }
+
 @font-face {
-  font-family: "atk";
-  src: url("../../assets/font/Atkinson-Hyperlegible-Bold-102.ttf");
+  font-family: "xht";
+  src: url("../../assets/font/字制区喜脉喜欢体.ttf");
 }
 
 html,
 body {
-  font-family: "atk";
+  font-family: "JY";
 }

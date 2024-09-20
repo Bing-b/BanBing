@@ -1,10 +1,276 @@
 <template>
   <div class="home-wrapper">
-    1
+    <section class="skill">
+      <div class="container flex flex-col items-center">
+        <h2>Personal skill</h2>
+        <div class="box">
+          <div><img src="../public/avatar.png" alt="" />HTML</div>
+          <div><img src="../public/avatar.png" alt="" />Vue</div>
+          <div><img src="../public/avatar.png" alt="" />Vite</div>
+          <div><img src="../public/avatar.png" alt="" />TypeScript</div>
+          <div><img src="../public/avatar.png" alt="" />Next</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="imgSec">
+      <div className="images_head">
+        <div className="images_title">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="mt-[3px]"
+          >
+            <path
+              d="M8.75348 17.6952C7.72056 14.0706 3.94416 10.3084 0.305928 9.27938C-0.101976 9.14829 -0.101976 8.8599 0.305928 8.72226C3.95074 7.68666 7.72056 3.931 8.76005 0.299863C8.8719 -0.0999545 9.14164 -0.0999545 9.25349 0.299863C10.2864 3.931 14.0628 7.68666 17.6945 8.72226C18.1024 8.85335 18.1024 9.14829 17.6945 9.27938C14.0562 10.3084 10.2798 14.0706 9.24691 17.6952C9.13506 18.1016 8.86532 18.1016 8.75348 17.6952Z"
+              fill="#A594FD"
+            ></path>
+          </svg>
+          <h1 className="images_blocks">Introducing Blocks</h1>
+        </div>
+
+        <div className="images_subtitle">
+          <!-- <h1>
+            A new, easy <br />
+            way to create.
+          </h1> -->
+        </div>
+      </div>
+
+      <div class="scroll-up">
+        <div>
+          <img src="../public/home/block-tickets.png" alt="" />
+        </div>
+        <div>
+          <img src="../public/home/block-poll.png" alt="" />
+        </div>
+      </div>
+
+      <div class="scroll-down">
+        <div>
+          <img src="../public/home/block-image-stack.png" alt="" />
+        </div>
+        <div>
+          <img src="../public/home/svg1.svg" alt="" />
+        </div>
+      </div>
+
+      <div class="scroll-up">
+        <div>
+          <img src="../public/home/svg2.svg" alt="" />
+        </div>
+      </div>
+
+      <div class="scroll-down">
+        <div>
+          <img src="../public/home/block-roadmap.png" alt="" />
+        </div>
+        <div>
+          <img src="../public/home/block-jessica.png" alt="" />
+        </div>
+      </div>
+
+      <div class="scroll-up">
+        <div>
+          <img src="../public/home/block-stats.png" alt="" />
+        </div>
+        <div>
+          <img src="../public/home/block-timeline.png" alt="" />
+        </div>
+      </div>
+
+      <div class="scroll-down">
+        <div>
+          <img src="../public/home/block-ranking.png" alt="" />
+        </div>
+        <div>
+          <img src="../public/home/svg3.svg" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <section class="words">
+      <div class="container">
+        <p class="reveal-type">
+          In Chronicle everything is made with Blocks that come with pixel
+          perfect design, interactivity and motion out of the box. Instead of
+          designing from scratch, simply choose the right one from our library
+          of blocks and see the magic unfold
+        </p>
+      </div>
+    </section>
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
+import gsap from "gsap";
+import { onMounted } from "vue";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import SplitType from "split-type";
+import Lenis from "@studio-freight/lenis";
+
+gsap.registerPlugin(ScrollTrigger); // 注册 ScrollTrigger 插件
+
+const lenis = new Lenis();
+lenis.on("scroll", (e) => {});
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
+
+onMounted(() => {
+  gsap.fromTo(
+    ".scroll-up",
+    {},
+    {
+      transform: "translateY(40px)",
+      scrollTrigger: {
+        trigger: ".scroll-up",
+        start: "top 50%",
+        end: "top top",
+        scrub: 1,
+        toggleActions: "play play reverse reverse",
+      },
+    }
+  );
+
+  gsap.fromTo(
+    ".scroll-down",
+    {},
+    {
+      transform: "translateY(-40px)",
+      scrollTrigger: {
+        trigger: ".scroll-down",
+        start: "top 50%",
+        end: "top top",
+        scrub: 1,
+        toggleActions: "play play reverse reverse",
+      },
+    }
+  );
+
+  const splitTypes = document.querySelectorAll(".reveal-type");
+
+  splitTypes.forEach((word) => {
+    const text2 = new SplitType(word, { types: "words" });
+
+    gsap.from(text2.words, {
+      scrollTrigger: {
+        trigger: word,
+        start: "top 60%",
+        end: "bottom 50%",
+        scrub: true,
+        toggleActions: "play play reverse reverse",
+      },
+      opacity: 0.2,
+      stagger: 0.1,
+    });
+  });
+});
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+.items-center {
+  align-items: center;
+}
+
+.skill {
+  padding: 60px 0;
+  h2 {
+    font-size: 50px;
+    margin-bottom: 30px;
+    font-family: "xht";
+  }
+  .box {
+    border-top: 1px solid #4f4f4f;
+    padding-top: 30px;
+    display: flex;
+    gap: 50px;
+    div {
+      padding: 5px 12px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background-color: #101010;
+      border-radius: 4px;
+      img {
+        width: 30px;
+        width: 30px;
+      }
+    }
+  }
+}
+
+.imgSec {
+  position: relative;
+  padding: 200px 40px 100px;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  .images_head {
+    position: absolute;
+    left: 20%;
+    top: 0%;
+    z-index: 1;
+    .images_title {
+      width: 540px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+    h1 {
+      font-size: 80px;
+      line-height: 88px;
+      // font-family: "xht";
+      font-style: normal;
+      font-weight: 600;
+    }
+  }
+  .scroll-up,
+  .scroll-down {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 287px;
+    gap: 24px;
+    div {
+      width: 100%;
+      border-radius: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+.words {
+  .container {
+    padding: 5rem 12vw;
+    scroll-snap-type: proximity;
+    p {
+      font-size: 80px;
+      line-height: 88px;
+      letter-spacing: -0.01em;
+    }
+  }
+}
+</style>
