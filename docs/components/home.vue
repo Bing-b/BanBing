@@ -1,6 +1,6 @@
 <template>
   <div class="home-wrapper">
-    <section class="skill">
+    <!-- <section class="skill">
       <div class="container flex flex-col items-center">
         <h2>Personal skill</h2>
         <div class="box">
@@ -11,7 +11,7 @@
           <div><img src="../public/avatar.png" alt="" />Next</div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <section class="imgSec">
       <div className="images_head">
@@ -29,7 +29,7 @@
               fill="#A594FD"
             ></path>
           </svg>
-          <h1 className="images_blocks">Introducing Blocks</h1>
+          <h1 className="images_blocks">Who am I ？</h1>
         </div>
 
         <div className="images_subtitle">
@@ -93,13 +93,22 @@
     </section>
 
     <section class="words">
-      <div class="container">
+      <div class="container scorll-box">
         <p class="reveal-type">
-          In Chronicle everything is made with Blocks that come with pixel
-          perfect design, interactivity and motion out of the box. Instead of
-          designing from scratch, simply choose the right one from our library
-          of blocks and see the magic unfold
+          <span v-for="(i, index) in text" :key="index">{{ i }}</span>
         </p>
+      </div>
+    </section>
+
+    <section class="mode">
+      <div class="container">
+        <div class="left">
+          <div class="">
+            <h1>ddsdsd</h1>
+            <p>dsdsds</p>
+          </div>
+        </div>
+        <div class="right"><img src="../public/home/svg4.svg" alt="" /></div>
       </div>
     </section>
   </div>
@@ -107,14 +116,10 @@
 
 <script setup>
 import gsap from "gsap";
-import { onMounted } from "vue";
+import { nextTick, onMounted, watch } from "vue";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 import SplitType from "split-type";
 import Lenis from "@studio-freight/lenis";
-
-gsap.registerPlugin(ScrollTrigger); // 注册 ScrollTrigger 插件
-
 const lenis = new Lenis();
 lenis.on("scroll", (e) => {});
 
@@ -125,6 +130,11 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 
+gsap.registerPlugin(ScrollTrigger); // 注册 ScrollTrigger 插件
+
+const text =
+  "路漫漫其修远兮，吾将上下而求索 风萧萧兮易水寒，壮士一去不复返 卷不动及回家种田卷不动及回家种田卷不动及回家种田卷不动及回家种田卷不动及回家种田卷不动及回家种田卷不动及回家种田卷不动及回家种田";
+
 onMounted(() => {
   gsap.fromTo(
     ".scroll-up",
@@ -133,7 +143,7 @@ onMounted(() => {
       transform: "translateY(40px)",
       scrollTrigger: {
         trigger: ".scroll-up",
-        start: "top 50%",
+        start: "top 60%",
         end: "top top",
         scrub: 1,
         toggleActions: "play play reverse reverse",
@@ -148,7 +158,7 @@ onMounted(() => {
       transform: "translateY(-40px)",
       scrollTrigger: {
         trigger: ".scroll-down",
-        start: "top 50%",
+        start: "top 60%",
         end: "top top",
         scrub: 1,
         toggleActions: "play play reverse reverse",
@@ -156,21 +166,35 @@ onMounted(() => {
     }
   );
 
-  const splitTypes = document.querySelectorAll(".reveal-type");
+  nextTick(() => {
+    const splitTypes = document.querySelectorAll(".reveal-type");
+    if (splitTypes.length === 0) {
+      console.error("No elements found with class 'reveal-type'.");
+      return;
+    }
 
-  splitTypes.forEach((word) => {
-    const text2 = new SplitType(word, { types: "words" });
+    // 默认设置文字的透明度为 0.2
+    splitTypes.forEach((word) => {
+      const text2 = new SplitType(word, { types: "words" });
 
-    gsap.from(text2.words, {
-      scrollTrigger: {
-        trigger: word,
-        start: "top 60%",
-        end: "bottom 50%",
-        scrub: true,
-        toggleActions: "play play reverse reverse",
-      },
-      opacity: 0.2,
-      stagger: 0.1,
+      // 初始透明度设置为 0.2
+      gsap.set(text2.words, { opacity: 0.2 });
+
+      gsap.to(text2.words, {
+        scrollTrigger: {
+          trigger: word,
+          start: "top 30%", // 页面滚动到文字的顶部位置
+          end: "bottom 10%", // 文字区域滚动到16%时结束
+          scrub: 3, // 开启滚动同步  值越大同步越慢  达到延迟效果
+          toggleActions: "play play reverse reverse",
+          markers: true, // 开启调试模式，显示滚动触发器的位置
+          pin: true, // 固定文字区域
+        },
+
+        opacity: 1, // 高亮效果
+        stagger: 1, // 逐字动画，间隔 0.2 秒
+        duration: 3,
+      });
     });
   });
 });
@@ -222,14 +246,14 @@ onMounted(() => {
 
 .imgSec {
   position: relative;
-  padding: 200px 40px 100px;
+  padding: 400px 40px 100px;
   display: flex;
   gap: 10px;
   justify-content: space-between;
   .images_head {
     position: absolute;
     left: 20%;
-    top: 0%;
+    top: 20%;
     z-index: 1;
     .images_title {
       width: 540px;
@@ -241,7 +265,7 @@ onMounted(() => {
     h1 {
       font-size: 80px;
       line-height: 88px;
-      // font-family: "xht";
+      font-family: "xht";
       font-style: normal;
       font-weight: 600;
     }
@@ -263,13 +287,40 @@ onMounted(() => {
 }
 
 .words {
+  padding: 100px 0;
   .container {
-    padding: 5rem 12vw;
+    padding: 0 200px;
     scroll-snap-type: proximity;
     p {
-      font-size: 80px;
+      font-size: 60px;
       line-height: 88px;
       letter-spacing: -0.01em;
+    }
+  }
+}
+
+.mode {
+  .container {
+    display: flex;
+    gap: 40px;
+    div {
+      width: 58%;
+      // height: 400px;
+      background-color: #101010;
+      border-radius: 1.25rem;
+    }
+    .right {
+      img {
+        width: 80%;
+        transition: 0.3s ease;
+        transform-origin: right top;
+        transform: skew(5deg) rotateX(50deg);
+      }
+      &:hover {
+        img {
+          transform: rotateY(0deg);
+        }
+      }
     }
   }
 }

@@ -21,7 +21,7 @@ export const nav: DefaultTheme.NavItem[] = [
         link: "/column/JavaScript/",
       },
       {
-        text: "工具",
+        text: "砸碎",
         link: "/column/Tool/",
       },
     ],

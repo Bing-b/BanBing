@@ -49,6 +49,10 @@ export const sidebar: DefaultTheme.Sidebar = {
           text: "Ngrok 实现内网穿透",
           link: "/column/Tool/index",
         },
+        {
+          text: "Vue3 代码规范",
+          link: "/column/Tool/specification",
+        },
       ],
     },
   ],

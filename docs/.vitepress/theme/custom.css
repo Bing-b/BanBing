@@ -61,3 +61,55 @@ html,
 body {
   font-family: "JY";
 }
+
+body {
+  --sb-track-color: #232e33;
+  --sb-thumb-color: #8051e0;
+  --sb-size: 5px;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 3px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 3px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}
+
+.VPDocAsideCarbonAds {
+  display: none;
+}
+
+.aside-content nav {
+  overflow-y: scroll;
+  max-height: 85vh;
+  --sb-track-color: #232e33;
+  --sb-thumb-color: #616064;
+  --sb-size: 5px;
+}
+
+.aside-content nav::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+.aside-content nav::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 3px;
+}
+
+.aside-content nav::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 3px;
+}
