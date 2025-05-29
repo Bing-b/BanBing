@@ -57,9 +57,14 @@
   src: url("../../assets/font/字制区喜脉喜欢体.ttf");
 }
 
+@font-face {
+  font-family: "maoken";
+  src: url("../../assets/font/MaokenAssortedSans-Lite.ttf");
+}
+
 html,
 body {
-  font-family: "JY";
+  font-family: "maoken";
 }
 
 body {

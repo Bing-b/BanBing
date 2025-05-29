@@ -13,84 +13,45 @@
       </div>
     </section> -->
 
-    <section class="imgSec">
-      <div className="images_head">
-        <div className="images_title">
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 18 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="mt-[3px]"
+    <ParticlesBg
+      class="absolute inset-0"
+      :quantity="100"
+      :ease="100"
+      :color="isDark ? '#FFF' : '#000'"
+      :staticity="10"
+      refresh
+    />
+
+    <h1 class="title !mt-20">who I am</h1>
+
+    <div
+      class="border border-[#e4e4e7] max-w-[1200px] my-10 mx-auto pt-10 rounded-md min-h-[800px]"
+    >
+      <div class="relative w-full overflow-hidden rounded-lg">
+        <div
+          class="absolute flex w-full flex-col items-center justify-center gap-2 p-8 text-center font-heading"
+        >
+          <span class="text-4xl font-semibold"> 一个普通的攻城狮 </span>
+          <span class="font-sans font-light"
+            >Build spline animations with style.</span
           >
-            <path
-              d="M8.75348 17.6952C7.72056 14.0706 3.94416 10.3084 0.305928 9.27938C-0.101976 9.14829 -0.101976 8.8599 0.305928 8.72226C3.95074 7.68666 7.72056 3.931 8.76005 0.299863C8.8719 -0.0999545 9.14164 -0.0999545 9.25349 0.299863C10.2864 3.931 14.0628 7.68666 17.6945 8.72226C18.1024 8.85335 18.1024 9.14829 17.6945 9.27938C14.0562 10.3084 10.2798 14.0706 9.24691 17.6952C9.13506 18.1016 8.86532 18.1016 8.75348 17.6952Z"
-              fill="#A594FD"
-            ></path>
-          </svg>
-          <h1 className="images_blocks">Who am I ？</h1>
         </div>
 
-        <div className="images_subtitle">
-          <!-- <h1>
-            A new, easy <br />
-            way to create.
-          </h1> -->
-        </div>
+        <PatternBackground
+          :animate="true"
+          :direction="PATTERN_BACKGROUND_DIRECTION.TopRight"
+          :variant="PATTERN_BACKGROUND_VARIANT.Dot"
+          class="flex h-[49rem] w-full items-center justify-center"
+          :speed="PATTERN_BACKGROUND_SPEED.Slow"
+        >
+          <Spline :scene="sceneUrl" class="mt-24 size-full" />
+        </PatternBackground>
       </div>
+    </div>
 
-      <div class="scroll-up">
-        <div>
-          <img src="../public/home/block-tickets.png" alt="" />
-        </div>
-        <div>
-          <img src="../public/home/block-poll.png" alt="" />
-        </div>
-      </div>
-
-      <div class="scroll-down">
-        <div>
-          <img src="../public/home/block-image-stack.png" alt="" />
-        </div>
-        <div>
-          <img src="../public/home/svg1.svg" alt="" />
-        </div>
-      </div>
-
-      <div class="scroll-up">
-        <div>
-          <img src="../public/home/svg2.svg" alt="" />
-        </div>
-      </div>
-
-      <div class="scroll-down">
-        <div>
-          <img src="../public/home/block-roadmap.png" alt="" />
-        </div>
-        <div>
-          <img src="../public/home/block-jessica.png" alt="" />
-        </div>
-      </div>
-
-      <div class="scroll-up">
-        <div>
-          <img src="../public/home/block-stats.png" alt="" />
-        </div>
-        <div>
-          <img src="../public/home/block-timeline.png" alt="" />
-        </div>
-      </div>
-
-      <div class="scroll-down">
-        <div>
-          <img src="../public/home/block-ranking.png" alt="" />
-        </div>
-        <div>
-          <img src="../public/home/svg3.svg" alt="" />
-        </div>
-      </div>
-    </section>
+    <!-- <div class="flex h-96 w-full items-center justify-center">
+      <LiquidLogo :image-url="imageUrl" />
+    </div> -->
 
     <section class="words">
       <div class="container scorll-box">
@@ -120,6 +81,25 @@ import { nextTick, onMounted, watch } from "vue";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
 import Lenis from "@studio-freight/lenis";
+import ParticlesBg from "./ParticlesBg.vue";
+import { computed } from "vue";
+import { useColorMode } from "@vueuse/core";
+import LiquidLogo from "./logo/LiquidLogo.vue";
+import Spline from "./spline/Spline.vue";
+import PatternBackground from "./dotbg/PatternBackground.vue";
+
+const imageUrl = "https://inspira-ui.com/images/apple-logo.svg";
+// const imageUrl = new URL("../assets/images/logo-octocat.avg", import.meta.url);
+const sceneUrl = "https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode";
+
+const isDark = computed(() => useColorMode().value == "dark");
+
+import {
+  PATTERN_BACKGROUND_DIRECTION,
+  PATTERN_BACKGROUND_SPEED,
+  PATTERN_BACKGROUND_VARIANT,
+} from "./dotbg/index";
+
 const lenis = new Lenis();
 lenis.on("scroll", (e) => {});
 
@@ -215,6 +195,14 @@ onMounted(() => {
 }
 .items-center {
   align-items: center;
+}
+
+.title {
+  text-align: center;
+  margin: 60px auto;
+  font-size: 52px;
+  font-weight: bold;
+  font-family: "maoken";
 }
 
 .skill {
