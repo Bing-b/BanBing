@@ -14,7 +14,7 @@ hero:
   text: Stay true, be you
   # tagline: /躺平/
   image:
-    #src: /home.gif
+    src: /home.png
     alt: avatar
   actions:
     - theme: brand
@@ -35,15 +35,6 @@ features:
   - icon: 🛀
     title: 躺平青年
     details: 是个平平无奇但是又平平无奇的躺平青年。
-  - icon: 🛀
-    title: 躺平青年
-    details: 是个平平无奇但是又平平无奇的躺平青年。
-  - icon: 🛀
-    title: 躺平青年
-    details: 是个平平无奇但是又平平无奇的躺平青年。
-  - icon: 🛀
-    title: 躺平青年
-    details: 是个平平无奇但是又平平无奇的躺平青年。
 ---
 
 <!-- 自定义组件 -->
@@ -51,6 +42,7 @@ features:
 import home from './components/home.vue';
 </script>
 <style >
+
 
 
   .name .clip {

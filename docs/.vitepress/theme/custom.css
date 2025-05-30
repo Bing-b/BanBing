@@ -67,9 +67,14 @@
   src: url("../../assets/font/NotoSansSC-Regular.woff2");
 }
 
+@font-face {
+  font-family: "Atkinson";
+  src: url("../../assets/font/Atkinson-Hyperlegible-Regular-102a.woff2");
+}
+
 html,
 body {
-  font-family: "maoken";
+  font-family: "JY";
 }
 
 body {

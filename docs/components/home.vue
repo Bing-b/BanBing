@@ -1,18 +1,6 @@
 <template>
   <div class="home-wrapper">
-    <!-- <section class="skill">
-      <div class="container flex flex-col items-center">
-        <h2>Personal skill</h2>
-        <div class="box">
-          <div><img src="../public/avatar.png" alt="" />HTML</div>
-          <div><img src="../public/avatar.png" alt="" />Vue</div>
-          <div><img src="../public/avatar.png" alt="" />Vite</div>
-          <div><img src="../public/avatar.png" alt="" />TypeScript</div>
-          <div><img src="../public/avatar.png" alt="" />Next</div>
-        </div>
-      </div>
-    </section> -->
-
+    <!-- 粒子背景 -->
     <ParticlesBg
       class="absolute inset-0 z-[-2]"
       :quantity="100"
@@ -31,7 +19,7 @@
         <div
           class="absolute flex w-full flex-col items-center justify-center gap-2 p-8 text-center font-heading"
         >
-          <span class="text-4xl font-semibold"> 一个普通的攻城狮 </span>
+          <span class="text-4xl font-semibold"> 一个NB的攻城狮 </span>
           <span class="font-sans font-light"
             >Build spline animations with style.</span
           >
@@ -284,6 +272,7 @@ onMounted(() => {
       font-size: 60px;
       line-height: 88px;
       letter-spacing: -0.01em;
+      font-family: "Atkinson";
     }
   }
 }
