@@ -14,7 +14,7 @@
     </section> -->
 
     <ParticlesBg
-      class="absolute inset-0"
+      class="absolute inset-0 z-[-2]"
       :quantity="100"
       :ease="100"
       :color="isDark ? '#FFF' : '#000'"
@@ -66,10 +66,11 @@
         <div class="left">
           <div class="">
             <h1>ddsdsd</h1>
+
             <p>dsdsds</p>
           </div>
         </div>
-        <div class="right"><img src="../public/home/svg4.svg" alt="" /></div>
+        <div class="right"></div>
       </div>
     </section>
   </div>
@@ -90,8 +91,8 @@ import PatternBackground from "./dotbg/PatternBackground.vue";
 
 const imageUrl = "https://inspira-ui.com/images/apple-logo.svg";
 // const imageUrl = new URL("../assets/images/logo-octocat.avg", import.meta.url);
-const sceneUrl = "https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode";
-
+//const sceneUrl = "https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode";
+const sceneUrl = new URL("./spline/scene.spline", import.meta.url);
 const isDark = computed(() => useColorMode().value == "dark");
 
 import {
@@ -113,7 +114,7 @@ requestAnimationFrame(raf);
 gsap.registerPlugin(ScrollTrigger); // 注册 ScrollTrigger 插件
 
 const text =
-  "路漫漫其修远兮，吾将上下而求索 风萧萧兮易水寒，壮士一去不复返 卷不动及回家种田卷不动及回家种田卷不动及回家种田卷不动及回家种田卷不动及回家种田卷不动及回家种田卷不动及回家种田卷不动及回家种田";
+  "My Journey as a Self-Taught Frontend Engineer  I’m a frontend engineer with a passion for building clean, user-friendly web experiences. ";
 
 onMounted(() => {
   gsap.fromTo(
@@ -291,10 +292,11 @@ onMounted(() => {
   .container {
     display: flex;
     gap: 40px;
-    div {
+    > div {
+      padding: 30px;
       width: 58%;
       // height: 400px;
-      background-color: #101010;
+      border: 1px solid #e4e4e7;
       border-radius: 1.25rem;
     }
     .right {

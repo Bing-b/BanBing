@@ -62,6 +62,11 @@
   src: url("../../assets/font/MaokenAssortedSans-Lite.ttf");
 }
 
+@font-face {
+  font-family: "NotoSansSC";
+  src: url("../../assets/font/NotoSansSC-Regular.woff2");
+}
+
 html,
 body {
   font-family: "maoken";

@@ -108,7 +108,7 @@ async function initSpline() {
       renderOnDemand: props.renderOnDemand,
     });
 
-    await splineApp.value.load(props.scene);
+    await splineApp.value.load(props.scene.href);
 
     // Set up event listeners
     const cleanUpFns = [

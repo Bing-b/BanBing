@@ -35,6 +35,15 @@ features:
   - icon: 🛀
     title: 躺平青年
     details: 是个平平无奇但是又平平无奇的躺平青年。
+  - icon: 🛀
+    title: 躺平青年
+    details: 是个平平无奇但是又平平无奇的躺平青年。
+  - icon: 🛀
+    title: 躺平青年
+    details: 是个平平无奇但是又平平无奇的躺平青年。
+  - icon: 🛀
+    title: 躺平青年
+    details: 是个平平无奇但是又平平无奇的躺平青年。
 ---
 
 <!-- 自定义组件 -->
