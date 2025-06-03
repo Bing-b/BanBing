@@ -1,8 +1,9 @@
 {
   "name": "bing-blog",
   "version": "1.0.0",
-  "description": "",
+  "description": "博客",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vitepress dev docs",
@@ -10,7 +11,7 @@
     "docs:preview": "vitepress preview docs"
   },
   "keywords": [],
-  "author": "",
+  "author": "wgb",
   "license": "ISC",
   "devDependencies": {
     "@inspira-ui/plugins": "^0.0.1",
@@ -23,7 +24,7 @@
     "tailwind-variants": "^1.0.0",
     "tailwindcss": "3",
     "tailwindcss-animate": "^1.0.7",
-    "vitepress": "2.0.0-alpha.5"
+    "vitepress": "1.6.3"
   },
   "pnpm": {
     "peerDependencyRules": {

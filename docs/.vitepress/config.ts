@@ -44,10 +44,10 @@ export default defineConfig({
 
     i18nRouting: true,
 
-    carbonAds: {
-      code: "your-carbon-code",
-      placement: "your-carbon-placement",
-    },
+    // carbonAds: {
+    //   code: "your-carbon-code",
+    //   placement: "your-carbon-placement",
+    // },
 
     socialLinks: [
       { icon: "github", link: "https://github.com/vuejs/vitepress" },

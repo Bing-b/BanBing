@@ -19,10 +19,8 @@
         <div
           class="absolute flex w-full flex-col items-center justify-center gap-2 p-8 text-center font-heading"
         >
-          <span class="text-4xl font-semibold"> 一个NB的攻城狮 </span>
-          <span class="font-sans font-light"
-            >Build spline animations with style.</span
-          >
+          <span class="text-4xl font-semibold"> master </span>
+          <span class="font-sans font-light">xx</span>
         </div>
 
         <PatternBackground

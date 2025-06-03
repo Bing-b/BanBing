@@ -45,7 +45,7 @@ import home from './components/home.vue';
 
 
 
-  .name .clip {
+  .heading .clip {
       background-image: linear-gradient(-45deg, #ffcb47, #e34ba9, #369eff, #95f3d9);
       -webkit-background-size: 400% 400%;
       background-size: 400% 400%;
@@ -55,7 +55,7 @@ import home from './components/home.vue';
       position: relative;
       z-index: 5;
       font-size:100px;
-      font-family:'xht';
+      font-family:'xht'!important;
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
