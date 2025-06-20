@@ -10,7 +10,7 @@
       refresh
     />
 
-    <h1 class="title !mt-20">who I am</h1>
+    <h1 class="title !mt-20">Who I Am</h1>
 
     <div
       class="border border-[#e4e4e7] max-w-[1200px] my-10 mx-auto pt-10 rounded-md min-h-[800px]"

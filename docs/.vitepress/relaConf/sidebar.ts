@@ -68,6 +68,10 @@ export const sidebar: DefaultTheme.Sidebar = {
           text: "修改容器php.ini",
           link: "/column/Docker/001_php",
         },
+        {
+          text: "脚本一键部署",
+          link: "/column/Docker/deploy",
+        },
       ],
     },
   ],

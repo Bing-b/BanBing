@@ -3,7 +3,7 @@
 1、进入容器
 
 ```shell
-docker exex -it <容器名> /bin/bash
+docker exec -it <容器名> /bin/bash
 ```
 
 2、重启容器

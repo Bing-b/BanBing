@@ -18,15 +18,17 @@
 
 /* Color Base */
 :root {
-  --vp-c-purple: #9d4edd;
-  --vp-c-purple-light: #9d4edd;
-  --vp-c-purple-lighter: #c77dff;
-  --vp-c-purple-dark: #7b2cbf;
-  --vp-c-purple-darker: #5a189a;
+  --vp-c-purple: #9d4edd !important;
+  --vp-c-purple-light: #9d4edd !important;
+  --vp-c-purple-lighter: #c77dff !important;
+  --vp-c-purple-dark: #7b2cbf !important;
+  --vp-c-purple-darker: #5a189a !important;
+
   /* 设置字体颜色 */
   /* --vp-home-hero-name-color: transparent; */
   /* --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff); */
   /* 设置右图像渐变 */
+
   --vp-home-hero-image-background-image: linear-gradient(
     -45deg,
     #ffcb47,
@@ -74,7 +76,7 @@
 
 html,
 body {
-  font-family: "JY";
+  font-family: "NotoSansSC";
 }
 
 body {

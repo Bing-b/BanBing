@@ -5,8 +5,8 @@
   "compilerOptions": {
     "moduleResolution": "node",
     "types": ["vitepress", "vue"],
-    "target": "ES6", // 目标语言的版本
-    "module": "ES6", // 生成代码的模板标准
+    "target": "esnext", // 目标语言的版本
+    "module": "esnext", // 生成代码的模板标准
     "lib": ["DOM", "ES5", "ES6", "ES7", "ScriptHost"], // TS需要引用的库
     "outDir": "./dist", // 指定输出目录
     "rootDir": "./", // 指定输出文件目录(用于输出)，用于控制输出目录结构
