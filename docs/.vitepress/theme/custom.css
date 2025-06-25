@@ -74,6 +74,11 @@
   src: url("../../assets/font/Atkinson-Hyperlegible-Regular-102a.woff2");
 }
 
+@font-face {
+  font-family: "cyly";
+  src: url("../../assets/font/ChenYuluoyan-2.0-Thin.ttf");
+}
+
 html,
 body {
   font-family: "NotoSansSC";

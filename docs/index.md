@@ -44,7 +44,7 @@ import home from './components/home.vue';
 <style >
 
 
-
+/** 主图logo */
   .heading .clip {
       background-image: linear-gradient(-45deg, #ffcb47, #e34ba9, #369eff, #95f3d9);
       -webkit-background-size: 400% 400%;

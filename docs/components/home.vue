@@ -19,8 +19,9 @@
         <div
           class="absolute flex w-full flex-col items-center justify-center gap-2 p-8 text-center font-heading"
         >
-          <span class="text-4xl font-semibold"> master </span>
-          <span class="font-sans font-light">xx</span>
+          <span class="text-2xl font-semibold">
+            Super Bing:一名攻城路上的超级兵
+          </span>
         </div>
 
         <PatternBackground
@@ -48,12 +49,13 @@
     </section>
 
     <section class="mode">
+      <h1 class="title !mt-20">技术</h1>
       <div class="container">
         <div class="left">
           <div class="">
-            <h1>ddsdsd</h1>
+            <h1>待续。。。</h1>
 
-            <p>dsdsds</p>
+            <p>error</p>
           </div>
         </div>
         <div class="right"></div>
@@ -100,7 +102,7 @@ requestAnimationFrame(raf);
 gsap.registerPlugin(ScrollTrigger); // 注册 ScrollTrigger 插件
 
 const text =
-  "My Journey as a Self-Taught Frontend Engineer  I’m a frontend engineer with a passion for building clean, user-friendly web experiences. ";
+  "我来自有着“恐龙之乡”“南国灯城”美誉的四川自贡，是一名从事计算机软件开发的普通人。每天穿梭于代码与文档之间，在枯燥与重复中寻找灵光与秩序。工作时常令人焦躁不安，有时热血沸腾，也有时难免摆烂，但我依然保持对技术的好奇与钻研的习惯，哪怕这份执着在同事眼中有些“较真”。生活跌宕起伏，我学着坦然面对。热爱生活，也热爱烟火气，喜欢做饭，不太喜欢洗碗。始终记得一句让我坚持下来的话：“世上只有一种英雄主义，就是在认清生活真相之后依然热爱生活。”";
 
 onMounted(() => {
   gsap.fromTo(
@@ -154,7 +156,7 @@ onMounted(() => {
           end: "bottom 10%", // 文字区域滚动到16%时结束
           scrub: 3, // 开启滚动同步  值越大同步越慢  达到延迟效果
           toggleActions: "play play reverse reverse",
-          markers: true, // 开启调试模式，显示滚动触发器的位置
+          markers: false, // 开启调试模式，显示滚动触发器的位置
           pin: true, // 固定文字区域
         },
 
@@ -262,15 +264,15 @@ onMounted(() => {
 }
 
 .words {
-  padding: 100px 0;
+  padding: 40px 0;
   .container {
-    padding: 0 200px;
+    padding: 0 50px;
     scroll-snap-type: proximity;
     p {
-      font-size: 60px;
-      line-height: 88px;
+      font-size: 32px;
+      line-height: 48px;
       letter-spacing: -0.01em;
-      font-family: "Atkinson";
+      font-family: "cyly";
     }
   }
 }
