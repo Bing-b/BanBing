@@ -1,1 +1,0 @@
-import{_ as s,o as a,c as p,N as n}from"./chunks/framework.d69a0811.js";const B=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"column/Docker/001_php.md"}'),e={name:"column/Docker/001_php.md"},o=n("",3),l=[o];function t(c,r,i,d,y,h){return a(),p("div",null,l)}const b=s(e,[["render",t]]);export{B as __pageData,b as default};
