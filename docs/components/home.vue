@@ -67,13 +67,13 @@
 <script setup>
 import gsap from "gsap";
 import { nextTick, onMounted, watch } from "vue";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import SplitType from "split-type";
 import Lenis from "@studio-freight/lenis";
 import ParticlesBg from "./ParticlesBg.vue";
 import { computed } from "vue";
 import { useColorMode } from "@vueuse/core";
-import LiquidLogo from "./logo/LiquidLogo.vue";
+// import LiquidLogo from "./logo/LiquidLogo.vue";
 import Spline from "./spline/Spline.vue";
 import PatternBackground from "./dotbg/PatternBackground.vue";
 
