@@ -2,19 +2,10 @@ import { defineConfig } from "vitepress";
 import { sidebar, nav } from "./relaConf";
 
 export default {
-  vite: {
-    optimizeDeps: {
-      include: ["gsap/ScrollTrigger"],
-    },
-  },
   base: "/BanBing/",
   title: "BING",
   description: "世上只有一种英雄主义，就是在认清生活真相之后依然热爱生活",
-  head: [
-    ["link", { rel: "icon", href: "/favicon.ico" }],
-    // 如果是 SVG，可以写：
-    // ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }]
-  ],
+  head: [["link", { rel: "icon", href: "/BanBing/favicon.ico" }]],
   // 配置markdown写作风格
   // markdown: {
   //   toc: {

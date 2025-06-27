@@ -19,9 +19,7 @@
         <div
           class="absolute flex w-full flex-col items-center justify-center gap-2 p-8 text-center font-heading"
         >
-          <span class="text-2xl font-semibold">
-            Super Bing:一名攻城路上的超级兵
-          </span>
+          <span class="text-2xl font-cyly"> 一名攻城路上的超级兵 </span>
         </div>
 
         <PatternBackground
@@ -31,7 +29,11 @@
           class="flex h-[49rem] w-full items-center justify-center"
           :speed="PATTERN_BACKGROUND_SPEED.Slow"
         >
-          <Spline :scene="sceneUrl" class="mt-24 size-full" />
+          <Spline
+            :scene="sceneUrl"
+            class="mt-24 size-full"
+            :onLoad="() => (isLoading = false)"
+          />
         </PatternBackground>
       </div>
     </div>
@@ -61,12 +63,13 @@
         <div class="right"></div>
       </div>
     </section>
+    <Loading v-if="isLoading" />
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import gsap from "gsap";
-import { nextTick, onMounted, watch } from "vue";
+import { nextTick, onMounted, ref, watch } from "vue";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import SplitType from "split-type";
 import Lenis from "@studio-freight/lenis";
@@ -76,6 +79,7 @@ import { useColorMode } from "@vueuse/core";
 // import LiquidLogo from "./logo/LiquidLogo.vue";
 import Spline from "./spline/Spline.vue";
 import PatternBackground from "./dotbg/PatternBackground.vue";
+import Loading from "./loading/index.vue";
 
 const imageUrl = "https://inspira-ui.com/images/apple-logo.svg";
 // const imageUrl = new URL("../assets/images/logo-octocat.avg", import.meta.url);
@@ -88,6 +92,8 @@ import {
   PATTERN_BACKGROUND_SPEED,
   PATTERN_BACKGROUND_VARIANT,
 } from "./dotbg/index";
+
+const isLoading = ref(true);
 
 const lenis = new Lenis();
 lenis.on("scroll", (e) => {});
@@ -104,7 +110,8 @@ gsap.registerPlugin(ScrollTrigger); // 注册 ScrollTrigger 插件
 const text =
   "我来自有着“恐龙之乡”“南国灯城”美誉的四川自贡，是一名从事计算机软件开发的普通人。每天穿梭于代码与文档之间，在枯燥与重复中寻找灵光与秩序。工作时常令人焦躁不安，有时热血沸腾，也有时难免摆烂，但我依然保持对技术的好奇与钻研的习惯，哪怕这份执着在同事眼中有些“较真”。生活跌宕起伏，我学着坦然面对。热爱生活，也热爱烟火气，喜欢做饭，不太喜欢洗碗。始终记得一句让我坚持下来的话：“世上只有一种英雄主义，就是在认清生活真相之后依然热爱生活。”";
 
-onMounted(() => {
+// 初始化
+const init = () => {
   gsap.fromTo(
     ".scroll-up",
     {},
@@ -166,6 +173,13 @@ onMounted(() => {
       });
     });
   });
+};
+
+onMounted(() => {
+  init();
+  // setTimeout(() => {
+  //   isLoading.value = false;
+  // }, 1000);
 });
 </script>
 
