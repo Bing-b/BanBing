@@ -40,7 +40,7 @@
 
 <script lang="ts" setup></script>
 
-<style scoped>
+<style>
 /* From Uiverse.io by Nawsome */
 .boxes {
   --size: 32px;
