@@ -105,7 +105,7 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 
-gsap.registerPlugin(ScrollTrigger); // 注册 ScrollTrigger 插件
+gsap.registerPlugin(ScrollTrigger); // 注册 ScrollTrigger 插件c
 
 const text =
   "我来自有着“恐龙之乡”“南国灯城”美誉的四川自贡，是一名从事计算机软件开发的普通人。每天穿梭于代码与文档之间，在枯燥与重复中寻找灵光与秩序。工作时常令人焦躁不安，有时热血沸腾，也有时难免摆烂，但我依然保持对技术的好奇与钻研的习惯，哪怕这份执着在同事眼中有些“较真”。生活跌宕起伏，我学着坦然面对。热爱生活，也热爱烟火气，喜欢做饭，不太喜欢洗碗。始终记得一句让我坚持下来的话：“世上只有一种英雄主义，就是在认清生活真相之后依然热爱生活。”";
