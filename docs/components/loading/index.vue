@@ -52,6 +52,7 @@
   transform-origin: 50% 50%;
   margin-top: calc(var(--size) * 1.5 * -1);
   transform: rotateX(60deg) rotateZ(45deg) rotateY(0deg) translateZ(0px);
+  z-index: 1111;
 }
 
 .boxes .box {
