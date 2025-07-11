@@ -50,7 +50,7 @@
       </div>
     </section>
 
-    <section class="mode">
+    <section class="skills">
       <h1 class="title !mt-20">技术</h1>
       <div class="container">
         <div class="left">
@@ -69,7 +69,7 @@
 
 <script lang="ts" setup>
 import gsap from "gsap";
-import { nextTick, onMounted, ref, watch } from "vue";
+import { nextTick, onMounted, ref } from "vue";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import SplitType from "split-type";
 import Lenis from "@studio-freight/lenis";
@@ -291,7 +291,7 @@ onMounted(() => {
   }
 }
 
-.mode {
+.skills {
   .container {
     display: flex;
     gap: 40px;

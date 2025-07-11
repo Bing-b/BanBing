@@ -3,7 +3,6 @@
     class="fixed inset-0 flex items-center justify-center backdrop-blur-md bg-white/50 rounded-xl shadow-lg p-6 z-50"
   >
     <div class="flex flex-col items-center gap-20">
-      <!-- From Uiverse.io by Nawsome -->
       <div class="boxes">
         <div class="box">
           <div></div>
@@ -31,7 +30,7 @@
         </div>
       </div>
       <h1 class="font-maoken text-4xl text-black/80 flex items-center gap-3">
-        loading<!-- From Uiverse.io by Juanes200122 -->
+        loading
         <div class="loader"></div>
       </h1>
     </div>
@@ -41,7 +40,6 @@
 <script lang="ts" setup></script>
 
 <style>
-/* From Uiverse.io by Nawsome */
 .boxes {
   --size: 32px;
   --duration: 800ms;
