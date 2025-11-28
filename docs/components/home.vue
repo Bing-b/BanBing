@@ -42,6 +42,8 @@
       <LiquidLogo :image-url="imageUrl" />
     </div> -->
 
+    <Loading v-show="isLoading" />
+
     <section class="words">
       <div class="container scorll-box">
         <p class="reveal-type">
@@ -63,13 +65,12 @@
         <div class="right"></div>
       </div>
     </section>
-    <Loading v-if="isLoading" />
   </div>
 </template>
 
 <script lang="ts" setup>
 import gsap from "gsap";
-import { nextTick, onMounted, ref } from "vue";
+import { nextTick, onMounted, onUnmounted, ref } from "vue";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import SplitType from "split-type";
 import Lenis from "@studio-freight/lenis";
@@ -86,6 +87,8 @@ const imageUrl = "https://inspira-ui.com/images/apple-logo.svg";
 //const sceneUrl = "https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode";
 const sceneUrl = new URL("./spline/scene.spline", import.meta.url);
 const isDark = computed(() => useColorMode().value == "dark");
+let ctx: gsap.Context | null = null; // 用于存储 GSAP 上下文以便清理
+let lenis: Lenis | null = null;
 
 import {
   PATTERN_BACKGROUND_DIRECTION,
@@ -95,91 +98,106 @@ import {
 
 const isLoading = ref(true);
 
-const lenis = new Lenis();
-lenis.on("scroll", (e) => {});
+// const lenis = new Lenis();
+// lenis.on("scroll", (e) => {});
 
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
+// function raf(time) {
+//   lenis.raf(time);
+//   requestAnimationFrame(raf);
+// }
 
-requestAnimationFrame(raf);
+// requestAnimationFrame(raf);
 
 gsap.registerPlugin(ScrollTrigger); // 注册 ScrollTrigger 插件c
 
 const text =
   "我来自有着“恐龙之乡”“南国灯城”美誉的四川自贡，是一名从事计算机软件开发的普通人。每天穿梭于代码与文档之间，在枯燥与重复中寻找灵光与秩序。工作时常令人焦躁不安，有时热血沸腾，也有时难免摆烂，但我依然保持对技术的好奇与钻研的习惯，哪怕这份执着在同事眼中有些“较真”。生活跌宕起伏，我学着坦然面对。热爱生活，也热爱烟火气，喜欢做饭，不太喜欢洗碗。始终记得一句让我坚持下来的话：“世上只有一种英雄主义，就是在认清生活真相之后依然热爱生活。”";
 
+// Lenis 平滑滚动初始化
+const initLenis = () => {
+  lenis = new Lenis();
+  function raf(time: number) {
+    lenis?.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+};
+
 // 初始化
 const init = () => {
-  gsap.fromTo(
-    ".scroll-up",
-    {},
-    {
-      transform: "translateY(40px)",
-      scrollTrigger: {
-        trigger: ".scroll-up",
-        start: "top 60%",
-        end: "top top",
-        scrub: 1,
-        toggleActions: "play play reverse reverse",
-      },
-    }
-  );
+  ctx = gsap.context(() => {
+    gsap.fromTo(
+      ".scroll-up",
+      {},
+      {
+        transform: "translateY(40px)",
+        scrollTrigger: {
+          trigger: ".scroll-up",
+          start: "top 60%",
+          end: "top top",
+          scrub: 1,
+          toggleActions: "play play reverse reverse",
+        },
+      }
+    );
 
-  gsap.fromTo(
-    ".scroll-down",
-    {},
-    {
-      transform: "translateY(-40px)",
-      scrollTrigger: {
-        trigger: ".scroll-down",
-        start: "top 60%",
-        end: "top top",
-        scrub: 1,
-        toggleActions: "play play reverse reverse",
-      },
-    }
-  );
+    gsap.fromTo(
+      ".scroll-down",
+      {},
+      {
+        transform: "translateY(-40px)",
+        scrollTrigger: {
+          trigger: ".scroll-down",
+          start: "top 60%",
+          end: "top top",
+          scrub: 1,
+          toggleActions: "play play reverse reverse",
+        },
+      }
+    );
+  });
 
   nextTick(() => {
     const splitTypes = document.querySelectorAll(".reveal-type");
-    if (splitTypes.length === 0) {
-      console.error("No elements found with class 'reveal-type'.");
-      return;
-    }
-
-    // 默认设置文字的透明度为 0.2
     splitTypes.forEach((word) => {
-      const text2 = new SplitType(word, { types: "words" });
+      // SplitType 会破坏 DOM，所以在 Vue 中必须小心
+      const text2 = new SplitType(word as HTMLElement, { types: "words" });
 
-      // 初始透明度设置为 0.2
+      // 初始状态
       gsap.set(text2.words, { opacity: 0.2 });
 
       gsap.to(text2.words, {
         scrollTrigger: {
           trigger: word,
-          start: "top 30%", // 页面滚动到文字的顶部位置
-          end: "bottom 10%", // 文字区域滚动到16%时结束
-          scrub: 3, // 开启滚动同步  值越大同步越慢  达到延迟效果
-          toggleActions: "play play reverse reverse",
-          markers: false, // 开启调试模式，显示滚动触发器的位置
-          pin: true, // 固定文字区域
+          start: "top 80%", // 稍微提前一点触发
+          end: "bottom 40%",
+          scrub: 1, // 降低 scrub 值让跟随更灵敏，避免延迟导致的视觉空白
+          markers: false,
+          // !!! 关键修改：移除了 pin: true，这通常是导致下方元素消失的罪魁祸首
         },
-
-        opacity: 1, // 高亮效果
-        stagger: 1, // 逐字动画，间隔 0.2 秒
-        duration: 3,
+        opacity: 1,
+        stagger: 0.02, // 调整 stagger 使其更流畅
+        duration: 1,
       });
     });
   });
 };
 
 onMounted(() => {
-  init();
-  // setTimeout(() => {
-  //   isLoading.value = false;
-  // }, 2000);
+  initLenis();
+
+  // 等待 DOM 完全渲染，特别是字体加载可能会影响高度
+  nextTick(() => {
+    // 稍微延迟一下确保 ClientOnly 内容已挂载
+    setTimeout(() => {
+      init();
+    }, 100);
+  });
+});
+
+onUnmounted(() => {
+  ctx?.revert(); // 清理 GSAP 动画，防止内存泄漏和布局错乱
+  lenis?.destroy();
 });
 </script>
 
