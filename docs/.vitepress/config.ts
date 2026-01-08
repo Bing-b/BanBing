@@ -32,7 +32,6 @@ export default {
     // https://vitepress.dev/reference/default-theme-config
     nav: nav,
     sidebar: sidebar,
-
     search: {
       provider: "local",
     },
@@ -42,7 +41,7 @@ export default {
       label: "目录",
     },
 
-    i18nRouting: true,
+    i18nRouting: false,
 
     // carbonAds: {
     //   code: "your-carbon-code",
