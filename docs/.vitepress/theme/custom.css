@@ -1,6 +1,7 @@
 /* color vars: https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css */
 /* purple brand color: https://coolors.co/palette/dec9e9-dac3e8-d2b7e5-c19ee0-b185db-a06cd5-9163cb-815ac0-7251b5-6247aa */
 
+/* 渐变动画 */
 @keyframes animation-text {
   0% {
     -webkit-background-position: 0% 50%;
@@ -18,11 +19,19 @@
 
 /* Color Base */
 :root {
-  --vp-c-purple: #9d4edd !important;
+  /* --vp-c-purple: #9d4edd !important;
   --vp-c-purple-light: #9d4edd !important;
   --vp-c-purple-lighter: #c77dff !important;
   --vp-c-purple-dark: #7b2cbf !important;
-  --vp-c-purple-darker: #5a189a !important;
+  --vp-c-purple-darker: #5a189a !important; */
+
+  --brand-color: #9d4edd;
+  --brand-color-light: #c77dff;
+  --brand-color-dark: #9445d9;
+
+  --vp-c-brand-1: var(--brand-color);
+  --brand-color-light: var(--brand-color-light); /* 悬停色 */
+  --vp-c-brand-3: var(--brand-color-dark); /* 激活色 */
 
   /* 设置字体颜色 */
   /* --vp-home-hero-name-color: transparent; */
@@ -42,11 +51,11 @@
 
 /* Color Theme */
 :root {
-  --vp-c-brand: var(--vp-c-purple);
+  /* --vp-c-brand: var(--vp-c-purple);
   --vp-c-brand-light: var(--vp-c-purple-light);
   --vp-c-brand-lighter: var(--vp-c-purple-lighter);
   --vp-c-brand-dark: var(--vp-c-purple-dark);
-  --vp-c-brand-darker: var(--vp-c-purple-darker);
+  --vp-c-brand-darker: var(--vp-c-purple-darker); */
 }
 
 @font-face {
@@ -57,11 +66,6 @@
 @font-face {
   font-family: "xht";
   src: url("../../assets/font/字制区喜脉喜欢体.ttf");
-}
-
-@font-face {
-  font-family: "maoken";
-  src: url("../../assets/font/MaokenAssortedSans-Lite.ttf");
 }
 
 @font-face {
@@ -108,10 +112,6 @@ body::-webkit-scrollbar-thumb {
   body {
     scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
   }
-}
-
-.VPDocAsideCarbonAds {
-  display: none;
 }
 
 .aside-content nav {

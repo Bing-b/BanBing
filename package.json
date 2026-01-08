@@ -1,10 +1,10 @@
 {
   "name": "bing-blog",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "博客",
   "main": "index.js",
   "scripts": {
-    "docs:dev": "vitepress dev docs",
+    "docs:dev": "vitepress dev docs --open",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
