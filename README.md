@@ -1,8 +1,5 @@
 # 🚀 超级 Bing 的个人知识库
 
-![VitePress](https://img.shields.io/badge/Static_Site-VitePress-646cff?style=for-the-badge&logo=vite)
-![pnpm](https://img.shields.io/badge/Package_Manager-pnpm-ff69b4?style=for-the-badge&logo=pnpm)
-
 欢迎来到 **超级 Bing** 的个人数字花园！这里是我沉淀技术文档、生活随笔和学习笔记的中心。
 
 ---

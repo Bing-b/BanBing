@@ -25,7 +25,7 @@
   --vp-c-purple-dark: #7b2cbf !important;
   --vp-c-purple-darker: #5a189a !important; */
 
-  --brand-color: #9d4edd;
+  --brand-color: #252422;
   --brand-color-light: #c77dff;
   --brand-color-dark: #9445d9;
 
@@ -59,11 +59,6 @@
 }
 
 @font-face {
-  font-family: "JY";
-  src: url("../../assets/font/江城圆体 400W.ttf");
-}
-
-@font-face {
   font-family: "xht";
   src: url("../../assets/font/字制区喜脉喜欢体.ttf");
 }
@@ -72,20 +67,14 @@
   font-family: "NotoSansSC";
   src: url("../../assets/font/NotoSansSC-Regular.woff2");
 }
-
 @font-face {
-  font-family: "Atkinson";
-  src: url("../../assets/font/Atkinson-Hyperlegible-Regular-102a.woff2");
-}
-
-@font-face {
-  font-family: "cyly";
-  src: url("../../assets/font/ChenYuluoyan-2.0-Thin.ttf");
+  font-family: "Yozai";
+  src: url("../../assets/font/Yozai-Medium.ttf");
 }
 
 html,
 body {
-  font-family: "NotoSansSC";
+  font-family: "Yozai";
 }
 
 body {
@@ -134,4 +123,14 @@ body::-webkit-scrollbar-thumb {
 .aside-content nav::-webkit-scrollbar-thumb {
   background: var(--sb-thumb-color);
   border-radius: 3px;
+}
+
+.VPNavBarTitle .logo {
+  height: 14px;
+  margin-top: 4px;
+  opacity: 0.8;
+}
+
+.vp-doc p {
+  color: #616064;
 }

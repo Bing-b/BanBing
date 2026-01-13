@@ -1,70 +1,153 @@
 ---
-# 提供三种布局，doc、page和home https://vitepress.dev/reference/default-theme-layout
-layout: home
-home: true
-
 # https://vitepress.dev/reference/default-theme-home-page
-title: BING
-titleTemplate: Hi，终于等到你
-editLink: true
-lastUpdated: true
-
-hero:
-  name: 留白
-  text: Stay true, be you
-  # tagline: /躺平/
-  image:
-    src: /home.png
-    alt: avatar
-  actions:
-    - theme: brand
-      text: 进入主页
-      link: /column/views/guide
-    - theme: alt
-      text: 个人成长
-      link: /column/Growing/
-features:
-  - icon: 👾
-    title: Web前端
-    details: 专业攻城狮，国内某互联网厂搬砖。
-    link: /column/views/guide
-  - icon: 📷‍
-    title: 热爱摄影
-    details: 手持破iphone，也能拍摄大片。
-    link: /column/Travel/
-  - icon: 🛀
-    title: 躺平青年
-    details: 是个平平无奇但是又平平无奇的躺平青年。
+layout: doc
+editLink: false
+lastUpdated: false
+isNoComment: true
+isNoBackBtn: true
 ---
 
-<!-- 自定义组件 -->
-<script setup>
-import home from './components/home.vue';
+<!-- 之所以将代码写在 md 里面，而非单独封装为 Vue 组件，因为 aside 不会动态刷新，参考 https://github.com/vuejs/vitepress/issues/2686 -->
+<template v-for="post in curPosts" :key="post.url">
+  <h2 :id="post.title" class="post-title">
+    <a class='tit' :href="post.url">{{ post.title }}</a>
+    <a
+      class="header-anchor"
+      :href="`#${post.title}`"
+      :aria-label="`Permalink to &quot;${post.title}&quot;`"
+      >​</a
+    >
+    <div class="post-date hollow-text source-han-serif">{{ post.date.string }}</div>
+  </h2>
+
+  <div v-if="post.excerpt" v-html="post.excerpt"></div>
+</template>
+
+<!-- <Pagination /> -->
+<div class="pagination-container">
+  <t-pagination
+    v-model="current"
+    v-model:pageSize="pageSize"
+    :total="total"
+    size="small"
+    :showPageSize="false"
+    @current-change="onCurrentChange"
+  />
+</div>
+
+<script lang="ts" setup>
+import { ref, computed } from "vue";
+import { useRoute, useRouter } from "vitepress";
+// 非 Vue 组件需要手动引入
+import {
+	MessagePlugin,
+	PaginationProps,
+	Pagination as TPagination,
+  Tag as TTag,
+} from "tdesign-vue-next";
+
+import { data as posts } from "./.vitepress/theme/posts.data.mts";
+// import { isMobile } from "./.vitepress/theme/utils/mobile.ts";
+
+const route = useRoute();
+
+const getPage = () => {
+  const search = route.query
+  const searchParams = new URLSearchParams(search);
+
+  return Number(searchParams.get("page") || "1");
+}
+
+const current = ref(getPage())
+const pageSize = ref(10);
+const total = ref(posts.length);
+
+// 在首页有page参数时，从NAV跳转到当前页，清空了参数，但没有刷新页面内容的问题，需要手动更新current
+const router = useRouter();
+router.onAfterRouteChange = (to) => {
+  current.value = getPage();
+}
+
+const curPosts = computed(() => {
+	return posts.slice(
+		(current.value - 1) * pageSize.value,
+		current.value * pageSize.value
+	);
+});
+
+const onCurrentChange: PaginationProps["onCurrentChange"] = (
+	index,
+	pageInfo
+) => {
+	// MessagePlugin.success(`转到第${index}页`);
+
+	const url = new URL(window.location as any);
+	url.searchParams.set("page", index.toString());
+	window.history.replaceState({}, "", url);
+
+	window.scrollTo({
+		top: 0,
+	});
+};
 </script>
-<style >
+<style lang="scss" scoped>
 
+.pagination-container {
+	margin-top: 60px;
 
-/** 主图logo */
-  .heading .clip {
-      background-image: linear-gradient(-45deg, #ffcb47, #e34ba9, #369eff, #95f3d9);
-      -webkit-background-size: 400% 400%;
-      background-size: 400% 400%;
-      border-radius: inherit;
-      -webkit-animation: 5s animation-text 5s ease infinite;
-      animation: 5s animation-text 5s ease infinite;
-      position: relative;
-      z-index: 5;
-      font-size:100px;
-      font-family:'xht'!important;
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+	:deep(li) {
+		margin-top: 0px;
+	}
+}
 
-  .main .text {
-    font-family: "xht";
-    font-weight: 600 !important;
+.mr-2 {
+	margin-right: 2px;
+}
+
+.post-title {
+	margin-bottom: 6px;
+	margin-top: 60px;
+	border-top: 0px;
+	position: relative;
+	top: 0;
+	left: 0;
+
+	> a {
+		font-weight: 400;
+    text-decoration: none;
+    
+	}
+  .tit {
+    font-weight:600;
   }
+	.post-date {
+		position: absolute;
+		top: -12px;
+		left: -10px;
+		z-index: -1;
+		opacity: .16;
+		font-size:76px;
+		font-weight: 900;
+	}
+
+	@media (max-width: 425px) {
+		.post-date {
+			font-size: 60px !important;
+		}
+	}
+	
+	&:first-child {
+		margin-top: 20px;
+	}
+}
+
+.hollow-text {
+  
+  /* 设置文本颜色为透明 */
+  color: var(--vp-c-bg);
+  
+	-webkit-text-stroke: 1px var(--vp-c-text-1);
+}
+
 
 </style>
-<home />

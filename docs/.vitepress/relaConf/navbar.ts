@@ -5,6 +5,7 @@ export const nav: DefaultTheme.NavItem[] = [
     text: "首页",
     link: "/",
   },
+  { text: "归档", link: "/archive", activeMatch: "/archive" },
   {
     text: "前端",
     items: [

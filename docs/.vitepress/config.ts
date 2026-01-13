@@ -28,7 +28,7 @@ export default {
   // },
 
   themeConfig: {
-    logo: "/home.png",
+    logo: "/logo.png",
     // https://vitepress.dev/reference/default-theme-config
     nav: nav,
     sidebar: sidebar,
@@ -42,6 +42,12 @@ export default {
     },
 
     i18nRouting: false,
+    docFooter: {
+      prev: "上一篇",
+      next: "下一篇",
+    },
+    outlineTitle: "当前页面",
+    lastUpdatedText: "最近更新时间",
 
     // carbonAds: {
     //   code: "your-carbon-code",
