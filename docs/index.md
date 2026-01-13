@@ -69,6 +69,7 @@ router.onAfterRouteChange = (to) => {
 }
 
 const curPosts = computed(() => {
+  console.log(posts)
 	return posts.slice(
 		(current.value - 1) * pageSize.value,
 		current.value * pageSize.value
