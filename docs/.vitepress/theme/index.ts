@@ -1,9 +1,9 @@
 import Theme from "vitepress/theme";
+import "tdesign-vue-next/es/style/index.css";
 import "./custom.css";
 import "./index.css";
 import GoBack from "./components/goBack.vue";
 import { h } from "vue";
-import "tdesign-vue-next/es/style/index.css";
 
 export default {
   ...Theme,

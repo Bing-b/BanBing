@@ -1,5 +1,14 @@
 import { sidebar, nav } from "./relaConf";
 const isProd = process.env.NODE_ENV === "production";
+
+// 自动导入 TDesign
+import AutoImport from "unplugin-auto-import/vite";
+import Components from "unplugin-vue-components/vite";
+import { TDesignResolver } from "unplugin-vue-components/resolvers";
+
+import { createSideBarZH } from "./theme/utils/createSideBar";
+
+const sideBarConfig = createSideBarZH();
 export default {
   base: isProd ? "/BanBing/" : "/",
   title: "BING",
@@ -10,7 +19,7 @@ export default {
   themeConfig: {
     logo: "/logo.png",
     nav: nav,
-    sidebar: sidebar,
+    sidebar: sideBarConfig,
     search: {
       provider: "local",
     },
@@ -36,5 +45,27 @@ export default {
     socialLinks: [
       { icon: "github", link: "https://github.com/vuejs/vitepress" },
     ],
+  },
+  vite: {
+    plugins: [
+      // ...
+      AutoImport({
+        resolvers: [
+          TDesignResolver({
+            library: "vue-next",
+          }),
+        ],
+      }),
+      Components({
+        resolvers: [
+          TDesignResolver({
+            library: "vue-next",
+          }),
+        ],
+      }),
+    ],
+    ssr: {
+      noExternal: ["tdesign-vue-next", "tdesign-icons-vue-next"],
+    },
   },
 };

@@ -1,7 +1,7 @@
 {
   "name": "bing-blog",
   "version": "1.0.1",
-  "description": "博客",
+  "description": "super bing blog",
   "main": "index.js",
   "scripts": {
     "docs:dev": "vitepress dev docs --open",
@@ -18,6 +18,8 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.3",
+    "unplugin-auto-import": "^0.17.6",
+    "unplugin-vue-components": "^0.27.0",
     "vitepress": "2.0.0-alpha.2"
   },
   "pnpm": {
@@ -32,7 +34,6 @@
     "sass-loader": "^16.0.5",
     "tdesign-icons-vue-next": "^0.4.1",
     "tdesign-vue-next": "^1.18.0",
-    "vite": "^5.4.19",
     "vue": "^3.5.17"
   }
 }
