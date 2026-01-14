@@ -23,7 +23,7 @@ date: 2024-01-03
 Ace（Ajax.org Cloud9 Editor）是一个用 JavaScript 编写的可嵌入代码编辑器。它与 Sublime，Vim 和 TextMate 等本地编辑器的功能和性能相匹配。它可以轻松地嵌入任何网页和 JavaScript 应用程序中。
 
 <p align="center">
-  <img src="../../public/images/ACE.png" alt="ACE">
+  <img src="../../../public/images/ACE.png" alt="ACE">
 </p>
 
 #### 2、特征
