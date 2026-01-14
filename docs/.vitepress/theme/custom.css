@@ -1,6 +1,3 @@
-/* color vars: https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css */
-/* purple brand color: https://coolors.co/palette/dec9e9-dac3e8-d2b7e5-c19ee0-b185db-a06cd5-9163cb-815ac0-7251b5-6247aa */
-
 /* 渐变动画 */
 @keyframes animation-text {
   0% {
@@ -19,19 +16,13 @@
 
 /* Color Base */
 :root {
-  /* --vp-c-purple: #9d4edd !important;
-  --vp-c-purple-light: #9d4edd !important;
-  --vp-c-purple-lighter: #c77dff !important;
-  --vp-c-purple-dark: #7b2cbf !important;
-  --vp-c-purple-darker: #5a189a !important; */
+  --vp-c-gray-1: #252422;
+  --vp-c-gray-2: #656d4a;
+  --vp-c-gray-3: #6c757d;
 
-  --brand-color: #252422;
-  --brand-color-light: #c77dff;
-  --brand-color-dark: #9445d9;
-
-  --vp-c-brand-1: var(--brand-color);
-  --brand-color-light: var(--brand-color-light); /* 悬停色 */
-  --vp-c-brand-3: var(--brand-color-dark); /* 激活色 */
+  --vp-c-blue-1: #f8f9fa;
+  --vp-c-blue-2: #656d4a;
+  --vp-c-blue-3: #ced4da;
 
   /* 设置字体颜色 */
   /* --vp-home-hero-name-color: transparent; */
@@ -51,11 +42,15 @@
 
 /* Color Theme */
 :root {
-  /* --vp-c-brand: var(--vp-c-purple);
-  --vp-c-brand-light: var(--vp-c-purple-light);
-  --vp-c-brand-lighter: var(--vp-c-purple-lighter);
-  --vp-c-brand-dark: var(--vp-c-purple-dark);
-  --vp-c-brand-darker: var(--vp-c-purple-darker); */
+  --vp-c-brand-1: var(--vp-c-gray-1);
+  --vp-c-brand-2: var(--vp-c-gray-2);
+  --vp-c-brand-3: var(--vp-c-gray-3);
+}
+
+.dark {
+  --vp-c-brand-1: var(--vp-c-blue-1);
+  --vp-c-brand-2: var(--vp-c-blue-2);
+  --vp-c-brand-3: var(--vp-c-blue-3);
 }
 
 @font-face {
@@ -64,17 +59,18 @@
 }
 
 @font-face {
-  font-family: "NotoSansSC";
-  src: url("../../assets/font/NotoSansSC-Regular.woff2");
+  font-family: "KNMaiyuan";
+  src: url("../../assets/font/KNMaiyuan-Regular.ttf");
 }
+
 @font-face {
-  font-family: "Yozai";
-  src: url("../../assets/font/Yozai-Medium.ttf");
+  font-family: "JNJJ";
+  src: url("../../assets/font/荆南俊俊体.otf");
 }
 
 html,
 body {
-  font-family: "Yozai";
+  font-family: "KNMaiyuan";
 }
 
 body {
@@ -127,10 +123,43 @@ body::-webkit-scrollbar-thumb {
 
 .VPNavBarTitle .logo {
   height: 14px;
-  margin-top: 4px;
+  margin-top: 2px;
   opacity: 0.8;
 }
 
 .vp-doc p {
-  color: #616064;
+  color: #6c757d;
+}
+
+/** 磨砂玻璃效果设置 */
+.VPNavBar {
+  background-color: transparent !important;
+}
+.VPNav .content .content-body {
+  backdrop-filter: blur(36px);
+  background-color: linear-gradient(
+    to bottom,
+    rgba(var(--vp-nav-bg-color), 0.98),
+    rgba(var(--vp-nav-bg-color), 0.6)
+  ) !important;
+}
+
+.VPLocalNav,
+.VPLocalNav .container {
+  backdrop-filter: blur(36px);
+  background-color: linear-gradient(
+    to bottom,
+    rgba(var(--vp-nav-bg-color), 0.6),
+    rgba(var(--vp-nav-bg-color), 0.4)
+  ) !important;
+}
+
+.VPLocalNav,
+.has-aside .container {
+  backdrop-filter: none;
+  background-color: none !important;
+}
+
+.VPNavBarMenuLink.active {
+  color: var(--vp-c-gray-2) !important;
 }

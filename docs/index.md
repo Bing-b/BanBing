@@ -47,7 +47,6 @@ import {
 } from "tdesign-vue-next";
 
 import { data as posts } from "./.vitepress/theme/posts.data.mts";
-// import { isMobile } from "./.vitepress/theme/utils/mobile.ts";
 
 const route = useRoute();
 
@@ -129,6 +128,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (
 		opacity: .16;
 		font-size:76px;
 		font-weight: 900;
+    font-family: "JNJJ";
 	}
 
 	@media (max-width: 425px) {

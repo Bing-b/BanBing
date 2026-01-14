@@ -1,12 +1,24 @@
-import DefaultTheme from "vitepress/theme";
+import Theme from "vitepress/theme";
 import "./custom.css";
 import "./index.css";
+import GoBack from "./components/goBack.vue";
+import { h } from "vue";
+import "tdesign-vue-next/es/style/index.css";
 
 export default {
-  ...DefaultTheme,
+  ...Theme,
+  Layout: () => {
+    return h(Theme.Layout, null, {
+      // https://vitepress.dev/guide/extending-default-theme#layout-slots
+      // "doc-after": () => h(Comment),
+      // "doc-top": () => h(ImageViewer),
+      "aside-top": () => h(GoBack),
+    });
+  },
   enhanceApp({ app, router }: any) {
     // register global components
     app.component("MyGlobalComponent" /* ... */);
+    app.component("GoBack", GoBack);
 
     router.onAfterRouteChanged = (to: string) => {
       // 兼容旧博客的中文路径，重定向到新路径，避免外链失效

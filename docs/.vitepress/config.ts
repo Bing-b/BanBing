@@ -1,4 +1,3 @@
-import { defineConfig } from "vitepress";
 import { sidebar, nav } from "./relaConf";
 const isProd = process.env.NODE_ENV === "production";
 export default {
@@ -10,7 +9,6 @@ export default {
   cleanUrls: true,
   themeConfig: {
     logo: "/logo.png",
-    // https://vitepress.dev/reference/default-theme-config
     nav: nav,
     sidebar: sidebar,
     search: {
