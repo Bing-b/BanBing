@@ -1,5 +1,7 @@
 import { createContentLoader } from "vitepress";
 
+const isProd = process.env.NODE_ENV === "production";
+
 interface Post {
   title: string;
   url: string;
@@ -17,19 +19,22 @@ export declare const data: Post[];
 /**
  * 在项目构建阶段，自动扫描指定目录下的所有 Markdown 文章
  */
-export default createContentLoader("posts/**/*.md", {
-  excerpt: excerptFn,
-  transform(raw): Post[] {
-    return raw
-      .map(({ url, frontmatter, excerpt }) => ({
-        title: frontmatter.title,
-        url,
-        excerpt,
-        date: formatDate(frontmatter.date),
-      }))
-      .sort((a, b) => b.date.time - a.date.time);
-  },
-});
+export default createContentLoader(
+  `${isProd ? "/BanBing/" : "/"}posts/**/*.md`,
+  {
+    excerpt: excerptFn,
+    transform(raw): Post[] {
+      return raw
+        .map(({ url, frontmatter, excerpt }) => ({
+          title: frontmatter.title,
+          url,
+          excerpt,
+          date: formatDate(frontmatter.date),
+        }))
+        .sort((a, b) => b.date.time - a.date.time);
+    },
+  }
+);
 
 // 提取摘要
 function excerptFn(file: {
