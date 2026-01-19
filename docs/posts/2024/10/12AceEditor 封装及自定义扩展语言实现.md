@@ -1,6 +1,6 @@
 ---
 title: AceEditor 封装及自定义扩展语言实现
-date: 2024-01-03
+date: 2024-10-12
 ---
 
 # AceEditor 封装及自定义扩展语言实现
@@ -172,14 +172,14 @@ ace.define(
               caption: word,
               value: word,
               meta: "mylang", // 自定义语言标识
-            }))
+            })),
           );
         },
       };
     }).call(Mode.prototype);
 
     exports.Mode = Mode;
-  }
+  },
 );
 ```
 
@@ -236,7 +236,7 @@ ace.define(
     oop.inherits(MyLangHighlightRules, TextHighlightRules);
 
     exports.MyLangHighlightRules = MyLangHighlightRules;
-  }
+  },
 );
 ```
 

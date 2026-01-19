@@ -1,6 +1,6 @@
 ---
 title: 修改通过 Docker 部署的 WordPress 上传文件的大小
-date: 2024-01-03
+date: 2024-10-22
 ---
 
 # 修改通过 Docker 部署的 WordPress 上传文件的大小
