@@ -53,7 +53,6 @@ const postGroups = computed(() => {
 });
 </script>
 <style lang="scss" scoped>
-
 .mr-2 {
 	margin-right: 2px;
 }
