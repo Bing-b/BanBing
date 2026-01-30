@@ -17,7 +17,7 @@ export default {
   },
   enhanceApp({ app, router }: any) {
     // register global components
-    app.component("MyGlobalComponent" /* ... */);
+    // app.component("MyGlobalComponent" /* ... */);
     app.component("GoBack", GoBack);
 
     router.onAfterRouteChanged = (to: string) => {

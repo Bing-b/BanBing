@@ -16,7 +16,7 @@ import { useRoute, useData } from "vitepress";
 import { RollbackIcon } from "tdesign-icons-vue-next";
 
 const route = useRoute();
-const isPosts = computed(() => route.path.startsWith("/posts"));
+const isPosts = computed(() => route.path.includes("/posts"));
 const { frontmatter } = useData();
 
 function goBack() {
