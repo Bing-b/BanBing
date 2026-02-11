@@ -12,16 +12,20 @@
 </template>
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from "vue";
-import { useRoute, useData } from "vitepress";
+import { useRoute, useData, withBase } from "vitepress";
 import { RollbackIcon } from "tdesign-icons-vue-next";
 
 const route = useRoute();
-const isPosts = computed(() => route.path.includes("/posts"));
+const isPosts = computed(() => {
+  // 移除 base 路径后再判断
+  const pathWithoutBase = route.path.replace(/^\/BanBing/, "");
+  return pathWithoutBase.includes("/posts");
+});
 const { frontmatter } = useData();
 
 function goBack() {
   if (window.history.length <= 1) {
-    location.href = "/";
+    location.href = withBase("/");
   } else {
     window.history.go(hashChangeCount.value);
     hashChangeCount.value = -1;

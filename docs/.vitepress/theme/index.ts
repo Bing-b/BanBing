@@ -21,13 +21,15 @@ export default {
     app.component("GoBack", GoBack);
 
     router.onAfterRouteChanged = (to: string) => {
+      const { site } = Theme;
       // 兼容旧博客的中文路径，重定向到新路径，避免外链失效
-      if (to.startsWith(encodeURI("/博客/"))) {
+      // 需要考虑 base 路径，例如 /BanBing/博客/ -> /BanBing/posts/
+      if (to.includes(encodeURI("/博客/"))) {
         const newUrl = to.replace(encodeURI("/博客/"), "/posts/");
         window.location.href = newUrl;
       }
 
-      if (to.startsWith(encodeURI("/笔记/"))) {
+      if (to.includes(encodeURI("/笔记/"))) {
         const newUrl = to.replace(encodeURI("/笔记/"), "/notes/");
         window.location.href = newUrl;
       }
