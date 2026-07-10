@@ -1,5 +1,5 @@
 import { sidebar, nav } from "./relaConf";
-const isProd = process.env.NODE_ENV === "production";
+
 
 // 自动导入 TDesign
 import AutoImport from "unplugin-auto-import/vite";
@@ -10,10 +10,10 @@ import { createSideBarZH } from "./theme/utils/createSideBar";
 
 const sideBarConfig = createSideBarZH();
 export default {
-  base: isProd ? "/BanBing/" : "/",
+  base: "/",
   title: "BING",
   description: "世上只有一种英雄主义，就是在认清生活真相之后依然热爱生活",
-  head: [["link", { rel: "icon", href: "/BanBing/favicon.ico" }]],
+  head: [["link", { rel: "icon", href: "/favicon.ico" }]],
 
   cleanUrls: true,
   themeConfig: {
