@@ -1,5 +1,4 @@
 import { createContentLoader } from "vitepress";
-const isProd = process.env.NODE_ENV === "production";
 
 interface Post {
   title: string;
@@ -24,7 +23,7 @@ export default createContentLoader("posts/**/*.md", {
     return raw
       .map(({ url, frontmatter, excerpt }) => ({
         title: frontmatter.title,
-        url: isProd ? "/BanBing" + url : url,
+        url: url,
         excerpt,
         date: formatDate(frontmatter.date),
       }))
