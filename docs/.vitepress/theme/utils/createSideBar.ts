@@ -27,6 +27,10 @@ export function createSideBarZH() {
             text: "02docker部署",
             link: "/notes/docker/02docker部署",
           },
+          {
+            text: "03docker静态网站部署",
+            link: "/notes/docker/03docker静态网站部署",
+          },
         ],
       },
       {
